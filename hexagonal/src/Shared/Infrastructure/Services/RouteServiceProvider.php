@@ -6,7 +6,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Route;
 
 
-abstract class RouteServicesProvider extends ServiceProvider {
+abstract class RouteServiceProvider extends ServiceProvider {
 
     private mixed $prefix;
     private mixed $namespaceName;
@@ -41,7 +41,7 @@ abstract class RouteServicesProvider extends ServiceProvider {
         Route::middleware('api')
                 ->prefix($this->prefix)
                 ->namespace($this->namespaceName)
-                ->group(basename($this->group));
+                ->group(($this->group));
     }
 }
 
