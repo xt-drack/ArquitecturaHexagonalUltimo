@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    throw new \Src\Shared\Domain\Exceptions\RequestFailedException("mi exception",400 );
 });
