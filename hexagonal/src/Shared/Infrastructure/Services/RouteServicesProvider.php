@@ -38,7 +38,8 @@ abstract class RouteServicesProvider extends ServiceProvider {
     
     public function mapRoutes():void {
 
-        Route::prefix($this->prefix)
+        Route::middleware('api')
+                ->prefix($this->prefix)
                 ->namespace($this->namespaceName)
                 ->group(basename($this->group));
     }
