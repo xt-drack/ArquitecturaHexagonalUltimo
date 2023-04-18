@@ -195,7 +195,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         //HEXAGONAL ZONE//
-        Src\Management\Login\Infrastructure\Services\RouteServiceProvider::class
+        Src\Management\Login\Infrastructure\Services\RouteServiceProvider::class,
+
+        Src\Management\Login\Infrastructure\Services\DependencyServiceProvider::class
 
     ],
 
