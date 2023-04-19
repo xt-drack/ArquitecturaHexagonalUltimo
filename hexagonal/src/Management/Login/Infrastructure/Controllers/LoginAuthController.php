@@ -22,7 +22,7 @@ final class LoginAuthController extends CustomController
         return $this->jsonResponse(
             $this->ok(),
             false,
-            $this->loginAuthUseCase->__invoke($request->toArray())->entity()
+            $this->loginAuthUseCase->__invoke($request->toArray())->handler()
         );
         
     }
