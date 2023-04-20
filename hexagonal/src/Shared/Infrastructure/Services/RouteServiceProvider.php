@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Route;
 
 abstract class RouteServiceProvider extends ServiceProvider {
 
-    private mixed $prefix;
-    private mixed $namespaceName;
-    private mixed $group;
-    private ?bool $except;
+    protected mixed $prefix;
+    protected mixed $namespaceName;
+    protected mixed $group;
+    protected ?bool $except;
+
 
     public function setDependency(
          mixed $prefix,
@@ -22,7 +23,7 @@ abstract class RouteServiceProvider extends ServiceProvider {
         $this->prefix = $prefix;
         $this->namespaceName = $namespace;
         $this->group = $group;
-        $this->$except = $except;
+        $this->except = $except;
     }
 
 
@@ -38,10 +39,18 @@ abstract class RouteServiceProvider extends ServiceProvider {
     
     public function mapRoutes():void {
 
-        Route::middleware('api')
+        if($this->except) {
+            Route::middleware('api')
                 ->prefix($this->prefix)
                 ->namespace($this->namespaceName)
                 ->group(($this->group));
+        } else {
+            Route::middleware(['api','jwt'])
+            ->prefix($this->prefix)
+            ->namespace($this->namespaceName)
+            ->group(($this->group));
+        }
+        
     }
 }
 
