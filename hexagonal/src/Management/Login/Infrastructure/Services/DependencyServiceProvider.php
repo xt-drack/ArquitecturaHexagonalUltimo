@@ -15,6 +15,13 @@ final class DependencyServiceProvider extends ServiceProvider  {
                 ],
                 "contract" => \Src\Management\Login\Domain\Contracts\LoginRepositoryContract::class,
                 "repository" => \Src\Management\Login\Infrastructure\Repositories\Eloquent\LoginRepository::class
+            ],
+            [
+                'useCase' => [
+                    \Src\Management\Login\Application\Auth\LoginAuthenticationUseCase::class
+                ],
+                "contract" => \Src\Management\Login\Domain\Contracts\LoginAuthenticationContract::class,
+                "repository" => \Src\Management\Login\Infrastructure\Repositories\FirebaseJwt\LoginAuthentication::class
             ]
         ]);
         parent::__construct($app);

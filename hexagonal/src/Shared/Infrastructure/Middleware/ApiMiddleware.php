@@ -18,7 +18,7 @@ use Src\Shared\Infrastructure\Helper\HttpCodesHelper;
         if (empty($request->header('authorization'))) {
             throw new ApiAuthException("Not auth authorization is empty", $this->badRequest());
         }
-
+        //dd(env("API_KEY"));
         if (env("API_KEY") !== $request->header('authorization')) {
             throw new ApiAuthException("Not auth authorization is failed", $this->unAuthorized());
         }
