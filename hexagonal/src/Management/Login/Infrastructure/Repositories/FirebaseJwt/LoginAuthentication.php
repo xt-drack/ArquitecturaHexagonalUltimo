@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Src\Management\Login\Infrastructure\Repositories\FirebaseJwt;
 
@@ -25,7 +25,7 @@ final class LoginAuthentication implements LoginAuthenticationContract {
         $loginAuthentication->jwtKey(),
         $loginAuthentication->jwtEncrypt()
     );
-        
+
     }
 
     public function check(LoginJwt $loginJwt): bool {
@@ -41,13 +41,23 @@ final class LoginAuthentication implements LoginAuthenticationContract {
                 return false;
             }
         } catch (\Exception $e) {
-            dd($e);
+            //dd($e);
             return false;
         }
 
         return true;
     }
 
+    public function get(LoginJwt $loginJwt): mixed
+    {
+        // TODO: Implement get() method.
+        $decode = $this->jwt::decode(
+            $loginJwt->value(),
+            new Key($loginJwt->jwtKey(), $loginJwt->jwtEncrypt())
+        );
+        $decodeArray = get_object_vars($decode);
+        return $decodeArray[0]->data;
+    }
 }
 
 ?>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Src\Management\Login\Domain\Contracts;
 
@@ -9,8 +9,10 @@ interface LoginAuthenticationContract {
 
     public function auth(LoginAuthenticationParameters $loginAuthentication): string;
 
-    public function check(LoginJwt $loginJwt):bool;
-    
+    public function check(LoginJwt $loginJwt): bool;
+
+    public function get(LoginJwt $loginJwt): mixed;
+
 }
 
 ?>

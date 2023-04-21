@@ -1,7 +1,8 @@
-<?php 
+<?php
 
 namespace Src\Management\Login\Infrastructure\Services;
 
+use Src\Management\Login\Application\Auth\LoginRoleAuthenticationUseCase;
 use Src\Shared\Infrastructure\Services\DependencyServiceProvider as ServiceProvider;
 
 final class DependencyServiceProvider extends ServiceProvider  {
@@ -19,7 +20,8 @@ final class DependencyServiceProvider extends ServiceProvider  {
             [
                 'useCase' => [
                     \Src\Management\Login\Application\Auth\LoginAuthenticationUseCase::class,
-                    \Src\Management\Login\Application\Auth\LoginCheckAutheticationUseCase::class
+                    \Src\Management\Login\Application\Auth\LoginCheckAutheticationUseCase::class,
+                    \Src\Management\Login\Application\Auth\LoginRoleAuthenticationUseCase::class
                 ],
                 "contract" => \Src\Management\Login\Domain\Contracts\LoginAuthenticationContract::class,
                 "repository" => \Src\Management\Login\Infrastructure\Repositories\FirebaseJwt\LoginAuthentication::class
@@ -28,7 +30,7 @@ final class DependencyServiceProvider extends ServiceProvider  {
         parent::__construct($app);
 
     }
-    
+
 
 }
 
