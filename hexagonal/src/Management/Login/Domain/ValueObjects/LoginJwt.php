@@ -1,18 +1,18 @@
-<?php 
+<?php
 
 namespace Src\Management\Login\Domain\ValueObjects;
 
 
 use Src\Shared\Domain\ValueObjects\StringvalueObject;
-
+use Illuminate\Support\Facades\Config;
 final class LoginJwt extends StringvalueObject {
- 
+
     public function jwtKey(): string {
-        return env('JWT_KEY');
+        return Config::get('app.JWT_KEY');
     }
 
     public function jwtEncrypt():string {
-        return env("JWT_ENCRYPT");
+        return Config::get("app.JWT_ENCRYPT");
     }
 }
 

@@ -1,19 +1,19 @@
-<?php 
+<?php
 
 namespace Src\Management\Login\Domain\ValueObjects;
 
 use Src\Shared\Domain\ValueObjects\MixedValueObject;
-
+use Illuminate\Support\Facades\Config;
 final class LoginAuthenticationParameters extends MixedValueObject {
- 
-    
+
+
     public function handler(): array {
         return [
             'iat' => time(),
             'nbf' => $this->getTime(),
             'aud' => $this->aud(),
             'data' => $this->value()
- 
+
 
         ];
     }
@@ -44,11 +44,11 @@ final class LoginAuthenticationParameters extends MixedValueObject {
     }
 
     public function jwtKey(): string {
-        return env('JWT_KEY');
+        return Config::get('app.JWT_KEY');
     }
 
     public function jwtEncrypt():string {
-        return env("JWT_ENCRYPT");
+        return Config::get("app.JWT_ENCRYPT");
     }
 
 }

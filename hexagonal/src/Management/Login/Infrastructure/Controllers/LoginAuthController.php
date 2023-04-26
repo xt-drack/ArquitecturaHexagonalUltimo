@@ -13,11 +13,11 @@ final class LoginAuthController extends CustomController
 {
     use HttpCodesHelper;
 
-    public function __construct(private LoginAuthUseCase $loginAuthUseCase)
+    public function __construct(private readonly LoginAuthUseCase $loginAuthUseCase)
     {
-        $this->middleware(RoleMiddleware::class, [
+        /*$this->middleware(RoleMiddleware::class, [
             'role' => 'super_admin'
-    ]);
+    ]);*/
     }
 
     public function __invoke(Request $request): JsonResponse

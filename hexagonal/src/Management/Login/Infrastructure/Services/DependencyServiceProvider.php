@@ -2,7 +2,7 @@
 
 namespace Src\Management\Login\Infrastructure\Services;
 
-use Src\Management\Login\Application\Auth\LoginRoleAuthenticationUseCase;
+
 use Src\Shared\Infrastructure\Services\DependencyServiceProvider as ServiceProvider;
 
 final class DependencyServiceProvider extends ServiceProvider  {

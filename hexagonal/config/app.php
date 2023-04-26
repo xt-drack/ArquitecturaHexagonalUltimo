@@ -16,7 +16,10 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-
+    'API_KEY' => env('API_KEY'),
+    'APP_VERSION' => env('APP_VERSION'),
+    'JWT_KEY' => env('JWT_KEY'),
+    'JWT_ENCRYPT' => env('JWT_ENCRYPT'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -196,8 +199,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         //HEXAGONAL ZONE//
         Src\Management\Login\Infrastructure\Services\RouteServiceProvider::class,
-
-        Src\Management\Login\Infrastructure\Services\DependencyServiceProvider::class
+        Src\Management\Login\Infrastructure\Services\DependencyServiceProvider::class,
+        Src\Management\Dealer\Infrastructure\Services\RouteServiceProvider::class,
+        Src\Management\Dealer\Infrastructure\Services\DependencyServiceProvider::class
 
     ],
 

@@ -21,9 +21,9 @@ class UserSeeder extends Seeder
             DB::table('users')->insert([
                  'first_name' => 'default' . $index,
                  'last_name' => 'default' . $index,
-                 'email' => Str::random(10) . '@default.com', 
+                 'email' => "user". $index . '@gmail.com',
                  'cellphone' => '123456789' . $index,
-                 'password' => password_hash('default', PASSWORD_DEFAULT),
+                 'password' => password_hash('password', PASSWORD_DEFAULT),
                  'state_id' => rand(1,4),
                  'created_at' => Carbon::now(),
                  'updated_at' => Carbon::now(),
